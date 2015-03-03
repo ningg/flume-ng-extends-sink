@@ -46,7 +46,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 * channel中多个event，抽取后，对应Kafka中一条记录；
 
 
-###OneToOneKafkaSink
+##OneToOneKafkaSink
 
 `OneToOneKafkaSink`主要用于解决channel中一个event对应一条Kafka记录的问题，具体是从[thilinamb-Kafka Sink][thilinamb-Kafka Sink]获取的代码，修改之处：
 
@@ -56,7 +56,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 注：向[thilinamb-Kafka Sink][thilinamb-Kafka Sink] 提交PR，添加编码方式设置。
 
 
-###ManyToOneKafkaSink
+##ManyToOneKafkaSink
 
 `ManyToOneKafkaSink`主要用于解决channel中多个event对应一条Kafka记录的问题，其关键点：
 
@@ -64,7 +64,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 * 多个channel event组成一个单元的事务管理；
 
 
-####TODO LIST
+##TODO LIST
 
 * KafkaSink向Kafka集群批量发送数据
 	* 背景：`ManyToOneKafkaSink`因为涉及heavy duty ETL，因此从channel中消费event的速度较慢，一定情况下，可能造成channel空间占满，最终导致Flume agent进程终止。
