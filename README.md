@@ -5,6 +5,24 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 * KafkaSink:
 
 
+##组件版本
+
+工程中，涉及到的组件版本，见下表：
+
+|组件|版本|
+|----|----|
+|Flume NG|`1.5.2`|
+
+
+##预装环境
+
+编译工程前，需要预装环境：
+
+* JDK 1.6+
+* [Apache Maven 3][Apache Maven 3]
+
+
+
 ##AdvancedLoggerSink
 
 
@@ -46,7 +64,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 * channel中多个event，抽取后，对应Kafka中一条记录；
 
 
-**疑问**：maven打包时，如何将当前jar包以及其依赖包都导出？
+**疑问**：maven打包时，如何将当前jar包以及其依赖包都导出？如何启用这一KafkaSink插件
 参考[thilinamb flume kafka sink](https://github.com/thilinamb/flume-ng-kafka-sink)
 
 
@@ -73,7 +91,8 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 * KafkaSink向Kafka集群批量发送数据
 	* 背景：`ManyToOneKafkaSink`因为涉及heavy duty ETL，因此从channel中消费event的速度较慢，一定情况下，可能造成channel空间占满，最终导致Flume agent进程终止。
 	* 解决思路：查看Kafka Producer API，向Kafka集群批量发送数据；
-
+* 启用KafkaSink的具体步骤
+	* 具体参考：[thilinamb-Kafka Sink][thilinamb-Kafka Sink] 
 
 
 
