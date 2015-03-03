@@ -24,7 +24,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 ###参数说明
 
-`com.github.ningg.flume.sink.AdavncedLoggerSink`中可配置参数如下（**必须配置**的属性已加黑）：
+`com.github.ningg.flume.sink.AdavncedLoggerSink`中可配置属性如下（**必须配置**的属性已加黑）：
 
 |Property Name	|Default	|Description|
 |----|----|----|
@@ -44,6 +44,10 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 * channel中一个event，抽取后，对应Kafka中一条记录；
 * channel中多个event，抽取后，对应Kafka中一条记录；
+
+
+**疑问**：maven打包时，如何将当前jar包以及其依赖包都导出？
+参考[thilinamb flume kafka sink](https://github.com/thilinamb/flume-ng-kafka-sink)
 
 
 ##OneToOneKafkaSink
@@ -68,14 +72,19 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 * KafkaSink向Kafka集群批量发送数据
 	* 背景：`ManyToOneKafkaSink`因为涉及heavy duty ETL，因此从channel中消费event的速度较慢，一定情况下，可能造成channel空间占满，最终导致Flume agent进程终止。
-	* 解决思路：查看Kafka Producer API；
+	* 解决思路：查看Kafka Producer API，向Kafka集群批量发送数据；
 
 
 
 
 
 
+##交流 & 反馈
 
+如果你对这一工程有任何建议，几个途径联系我：
+
+* 在工程下，提出[Isusses](https://github.com/ningg/flume-ng-extends-sink/issues)	*（推荐）*
+* [在bolg发表评论](http://ningg.github.io/flume-advance-logger-sink//)
 
 
 
