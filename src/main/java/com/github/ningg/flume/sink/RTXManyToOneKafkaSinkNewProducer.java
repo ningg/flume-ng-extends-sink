@@ -6,22 +6,21 @@ import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
 
-import kafka.producer.KeyedMessage;
-
 import org.apache.commons.lang.math.RandomUtils;
 import org.apache.flume.Channel;
 import org.apache.flume.Event;
 import org.apache.flume.EventDeliveryException;
 import org.apache.flume.Transaction;
+import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.github.ningg.flume.RTXRollbackException;
 import com.google.gson.Gson;
 
-public class RTXManyToOneKafkaSink extends BaseKafkaSink{
+public class RTXManyToOneKafkaSinkNewProducer extends BaseKafkaSinkNewProducer{
 
-	private static final Logger logger = LoggerFactory.getLogger(RTXManyToOneKafkaSink.class);
+	private static final Logger logger = LoggerFactory.getLogger(RTXManyToOneKafkaSinkNewProducer.class);
 	
 	@Override
 	public Status process() throws EventDeliveryException {
@@ -94,7 +93,7 @@ public class RTXManyToOneKafkaSink extends BaseKafkaSink{
 					}
 					
 					// Create a message
-					KeyedMessage<String, String> data = new KeyedMessage<String, String>(eventTopic, eventKey, eventBody);
+					ProducerRecord<String, String> data = new ProducerRecord<String, String>(eventTopic, eventKey, eventBody);
 					super.getProducer().send(data);
 					// rtxInfo.clearAll();	// Do not clearAll, so that can deal with the scenario: only parts of RTX unit are taken.
 					break;		// Only send one Kafka event
