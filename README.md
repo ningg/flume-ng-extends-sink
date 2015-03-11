@@ -102,7 +102,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 如果你对这一工程有任何建议，几个途径联系我：
 
-* 在工程下，提出[Isusses](https://github.com/ningg/flume-ng-extends-sink/issues)	*（推荐）*
+* 在工程下，提出[Isusses](https://github.com/ningg/flume-ng-extends-sink/issues)
 * [在bolg发表评论](http://ningg.github.io/flume-advance-logger-sink//)
 
 
@@ -117,4 +117,4 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 [Flume advanced logger sink]:				http://ningg.github.io/flume-advance-logger-sink/
 [thilinamb-Kafka Sink]:						https://github.com/thilinamb/flume-ng-kafka-sink
-
+[Apache Maven 3]:							http://maven.apache.org/

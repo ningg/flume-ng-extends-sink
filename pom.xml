@@ -15,6 +15,17 @@
   		<version>1.5.2</version>
   	</dependency>
   	<dependency>
+  		<groupId>org.apache.flume.flume-ng-sinks</groupId>
+		<artifactId>flume-ng-elasticsearch-sink</artifactId>
+  		<version>1.5.2</version>
+  	</dependency>
+  	<dependency>
+  		<groupId>org.elasticsearch</groupId>
+  		<artifactId>elasticsearch</artifactId>
+  		<version>1.4.4</version>
+  	</dependency>
+  	
+  	<dependency>
   		<groupId>org.apache.kafka</groupId>
   		<artifactId>kafka_2.9.2</artifactId>
   		<version>0.8.2.0</version>
