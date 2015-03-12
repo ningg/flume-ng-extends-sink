@@ -8,7 +8,6 @@ import org.apache.flume.Transaction;
 import org.apache.flume.conf.Configurable;
 import org.apache.flume.event.EventHelper;
 import org.apache.flume.sink.AbstractSink;
-import org.apache.flume.sink.LoggerSink;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
