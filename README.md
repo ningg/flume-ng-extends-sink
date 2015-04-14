@@ -3,6 +3,7 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 * AdvancedLoggerSink:
 * KafkaSink:
+* ElasticSearchSink：定制Serializer，`elasticsearch.serializer.*`
 
 
 ##组件版本
@@ -96,6 +97,24 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 
 
 
+##ElasticSearchSink
+
+定制Serializer，具体使用此sink时，样本配置文件如下：
+
+	# ElasticSearchSink for ElasticSearch.
+	agent.sinks.loggerSink.type = org.apache.flume.sink.elasticsearch.ElasticSearchSink
+	agent.sinks.loggerSink.indexName = flume
+	agent.sinks.loggerSink.indexType = log
+	agent.sinks.loggerSink.batchSize = 1000
+	#agent.sinks.loggerSink.ttl = 5
+	agent.sinks.loggerSink.client = transport
+	agent.sinks.loggerSink.hostNames = 168.7.1.69:9300
+	#agent.sinks.loggerSink.client = rest
+	#agent.sinks.loggerSink.hostNames = 168.7.1.69:9200
+	#agent.sinks.loggerSink.serializer = org.apache.flume.sink.elasticsearch.ElasticSearchLogStashEventSerializer
+	agent.sinks.loggerSink.serializer = com.github.ningg.flume.sink.elasticsearch.serializer.RTXElasticSearchIndexRequestBuilderFactory
+
+更多细节，参考：[Flume实现将Kafka中数据传入ElasticSearch中][Flume实现将Kafka中数据传入ElasticSearch中]
 
 
 ##交流 & 反馈
@@ -118,3 +137,4 @@ several flume NG sinks: Advanced logger sink, Kafka sink, etc.
 [Flume advanced logger sink]:				http://ningg.github.io/flume-advance-logger-sink/
 [thilinamb-Kafka Sink]:						https://github.com/thilinamb/flume-ng-kafka-sink
 [Apache Maven 3]:							http://maven.apache.org/
+[Flume实现将Kafka中数据传入ElasticSearch中]:		http://ningg.github.com/flume-kafka-source-elasticsearch-sink/
